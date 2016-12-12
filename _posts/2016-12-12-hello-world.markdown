@@ -23,4 +23,4 @@ Well as you have hopefully seen in the header, my name is Mason Richins. I am cu
 
 ## Final Thoughts:
 
-I hope to keep to a rough cadence of at least one post a month, but I already have some posts from previous projects thought up, so hopefully
+I hope to keep to a rough cadence of at least one post a month, but I already have some posts from previous projects thought up, so hopefully there will be a good number coming through the pipes in the coming few months!
