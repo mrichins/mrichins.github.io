@@ -1,0 +1,27 @@
+---
+title: "Hello World"
+layout: post
+date: 2016-12-05 12:01
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- 
+blog: true
+star: true
+author: masonrichins
+description: First Post
+---
+
+## Hello World:
+
+So this is the first in what will hopefully become a series of blog posts about testing and software development
+
+## How I Got Here:
+
+## Why a Blog?:
+
+Other than the free hosting I am able to get via my GitHub account, I want to use this platform as a way of encapsulating and documenting lessons I learn on the job, in my personal side projects, and from others. Recently, I was faced with a new, exciting tech stack where documentation was sparse and the tooling was immature. Of course, this was did not stop my team from building our microservices and front-end application, the lack of established practices and industry consensus allowed us to experiement with new approaches and concepts, especially in the testing space.
+
+## Final Thoughts:
+
+
