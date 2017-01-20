@@ -44,6 +44,7 @@ You might be asked to refesh by your IDE, but it should be relatively quick.
 Now you have junit and the shell of a java project, but we need to add the selenium libraries to start driving the browser and asserting on a real website.
 
 add this line to your gradle dependencies:
+
 ```
 compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.53.0'
 ```
@@ -53,6 +54,7 @@ Now that we have the various objects and libraries that we need to make Selenium
 In this case I've chosen to test Google's search functionality, but lets just make sure we can actually hit the page anyway. Ive made a new Java class at /src/test/java and for the time being I'm just going to dump all of my classes here since theres no need to organize my files.
 
 MyFirstTest:
+
 ```java
 public class MyFirstTest {
 
@@ -71,7 +73,9 @@ I had to use the contains function rather than equals since google adds a bunch 
 ## Making It Actually Do Something Of Consequence
 
 Okay, now that we've tested that we have successfully navigated to the google search page, lets have it find the search bar, type a basic string and search for it.
+
 MyFirstTest:
+
 ```java
 public class MyFirstTest {
 
@@ -86,6 +90,7 @@ public class MyFirstTest {
     }
 }
 ```
+
 If you try to run the test without the sleep, you'll notice the test fails immediately because it can't find the element. However, if you look at the firefox window that popped up, its definitely there, so what could be the problem?
 
 Selenium is not smart and will try to grab an element right away, *even before the page has fully redered onto the DOM*. This is typically where we would start using more intelligent waiting logic, but for right now lets just pause our application for a second using Thread.sleep().
@@ -95,6 +100,7 @@ Selenium is not smart and will try to grab an element right away, *even before t
 Now our test actually does something, but at the same time our code has started getting full of magic strings and explicit waits, so lets move some of the actions to a separate class to help clean up the test. This is called a page object, and it contains all of the logic that a page needs to know about itself such as values that are displayed and actions that a user might want to take against it as public functions.
 
 Page:
+
 ```java
 public class Page {
     private WebDriver driver;
@@ -135,6 +141,7 @@ public class MyFirstTest {
 But when we run this test, it fails, complaining that there is no such element. Now it seems the driver just isnt patient enough for the element to be loaded. Again. For right now, we'll just add another wait to help make this test pass. Right now I am more concerned about the logic within the assertion since we have already established that putting driver finding elements in a test is an anti-pattern, so lets bring that out to a results page object. And while we're at it, lets rename the Page object to HomePage, to make the difference between the two clear.
 
 ResultsPage:
+
 ```java
 public class ResultsPage {
     private WebDriver driver;
@@ -147,7 +154,9 @@ public class ResultsPage {
     }
 }
 ```
+
 MyFirstTest:
+
 ```java
 public class MyFirstTest {
 
@@ -172,6 +181,7 @@ Now the duplicate waiting in our test is starting to become more annoying and ou
 First off, lets clean up the test a bit more
 
 MyFirstTest:
+
 ```java
 public class MyFirstTest {
     WebDriver driver;
@@ -200,9 +210,11 @@ public class MyFirstTest {
     }
 }
 ```
+
 While we want to deal with that annoying wait within the page objects, we most likely want both the home page and results page to use a similar approach to intelligently waiting, we might want to extract that logic into a new class that they can both access. Because this new page object has behavior that we expect all pages to use, we will call this new superclass the BasePage.
 
 BasePage:
+
 ```java
 public class BasePage {
     private WebDriver driver;
@@ -220,7 +232,9 @@ public class BasePage {
     }
 }
 ```
+
 HomePage:
+
 ```java
 public class HomePage extends BasePage{
 
@@ -244,6 +258,7 @@ We've finally gotten our test down to just the logic that describes our test, an
 Now imagine we have to test a separate area of functionality for Google, and add an additional test for google, though since this is just an exercise, we are just going to redo the exact same test in another file. But this new test has a significant amount of duplication with first test outside of the test logic itself. Additionally, if I want to change the pages on my site that are tested, or which browser to use, ill need to change it in multiple places. Not good.
 
 MySecondTest:
+
 ```java
 public class MySecondTest {
     WebDriver driver;
