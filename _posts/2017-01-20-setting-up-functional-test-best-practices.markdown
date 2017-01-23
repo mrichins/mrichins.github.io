@@ -30,15 +30,15 @@ First you have to set up a Gradle project. I am using Intellij but almost any ID
 
 Using the Intellij project setup, chose a basic Gradle project
 
-![Gradle project setup]({{ site.url }}/assets/seleniumTestProject/picture1.png)
+![Gradle project setup]({{ site.url }}/assets/images/seleniumTestProject/picture1.png)
 
 And then add whatever group id and artifact id.
 
-![Group Id and artifact]({{ site.url }}/assets/seleniumTestProject/picture2.png)
+![Group Id and artifact]({{ site.url }}/assets/images/seleniumTestProject/picture2.png)
 
 Select the options for use auto-import and automatically creating directories. Otherwise leave everything as default.
 
-![Gradle settings]({{ site.url }}/assets/seleniumTestProject/picture3.png)
+![Gradle settings]({{ site.url }}/assets/images/seleniumTestProject/picture3.png)
 
 I am also going to use git to save my progress at certain points, and to use old commits to show the pattern of growth. So lets make this a git repo as well.
 
