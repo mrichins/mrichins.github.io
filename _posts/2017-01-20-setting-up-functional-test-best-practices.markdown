@@ -2,8 +2,8 @@
 title: "Building a Functional Test Framework from Scratch"
 layout: post
 date: 2017-01-20 12:01
-image: /assets/images/markdown.jpg
-headerImage: false
+image: /assets/images/teaRobot.jpg
+headerImage: true
 tag:
 -
 blog: true
